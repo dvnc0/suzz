@@ -1,7 +1,14 @@
-use clap::{Command, Arg, ArgAction};
+use clap::{Command, Arg, ArgAction, value_parser};
 
+#[derive(Debug)]
+pub struct Target {
+    files: String,
+    url: String,
+    delay: i32,
+    verbose:bool
+}
 fn main() {
-    let _matches = Command::new("suzz")
+    let matches = Command::new("suzz")
         .version("0.1.0")
         .author("dvnc0")
         .about("A simple fuzzer")
@@ -25,6 +32,7 @@ fn main() {
                 .short('d')
                 .value_name("DELAY")
                 .help("Optional delay in seconds between requests")
+                .value_parser(value_parser!(i32))
                 .default_value("0")
         )
         .arg(
@@ -35,4 +43,12 @@ fn main() {
                 .action(ArgAction::SetTrue)
         )
         .get_matches();
+
+    let target = Target {
+        files: matches.get_one::<String>("file").unwrap().to_string(),
+        url: matches.get_one::<String>("url").unwrap().to_string(),
+        delay: *matches.get_one::<i32>("delay").unwrap(),
+        verbose: matches.get_flag("verbose")
+    };
+
 }
