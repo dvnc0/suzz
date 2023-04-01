@@ -1,8 +1,8 @@
 use clap::{Command, Arg, ArgAction};
 
 fn main() {
-    let _matches = Command::new("Suzz")
-        .version("1.0.0")
+    let _matches = Command::new("suzz")
+        .version("0.1.0")
         .author("dvnc0")
         .about("A simple fuzzer")
         .arg(
