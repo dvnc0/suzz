@@ -11,7 +11,7 @@ pub fn info(message: String) {
     println!("{}", message.color(Color::Blue));
 }
 
-pub fn _error(message: String) {
+pub fn error(message: String) {
     println!("{}", message.color(Color::Red));
 }
 

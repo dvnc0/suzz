@@ -4,7 +4,7 @@ use clap::{Command, Arg, ArgAction, value_parser};
 pub struct Target {
     pub files: String,
     pub url: String,
-    pub delay: i32,
+    pub delay: u64,
     pub verbose:bool
 }
 
@@ -33,7 +33,7 @@ pub fn build_app() -> Target {
                 .short('d')
                 .value_name("DELAY")
                 .help("Optional delay in seconds between requests")
-                .value_parser(value_parser!(i32))
+                .value_parser(value_parser!(u64))
                 .default_value("0")
         )
         .arg(
@@ -48,7 +48,7 @@ pub fn build_app() -> Target {
     let target = Target {
         files: matches.get_one::<String>("file").unwrap().to_string(),
         url: matches.get_one::<String>("url").unwrap().to_string(),
-        delay: *matches.get_one::<i32>("delay").unwrap(),
+        delay: *matches.get_one::<u64>("delay").unwrap(),
         verbose: matches.get_flag("verbose")
     };
     target
