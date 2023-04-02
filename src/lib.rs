@@ -12,7 +12,27 @@ pub fn build_app() -> Target {
     let matches = Command::new("suzz")
         .version("0.1.0")
         .author("dvnc0")
-        .about("A simple fuzzer")
+        .about("
+---------------------------------------------------------------------------
+     SSSSSSSSSSSSSSS                                                     
+   SS:::::::::::::::S                                                    
+  S:::::SSSSSS::::::S                                                    
+  S:::::S     SSSSSSS                                                    
+  S:::::S            uuuuuu    uuuuuu  zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+  S:::::S            u::::u    u::::u  z:::::::::::::::zz:::::::::::::::z
+   S::::SSSS         u::::u    u::::u  z::::::::::::::z z::::::::::::::z 
+    SS::::::SSSSS    u::::u    u::::u  zzzzzzzz::::::z  zzzzzzzz::::::z  
+      SSS::::::::SS  u::::u    u::::u        z::::::z         z::::::z   
+         SSSSSS::::S u::::u    u::::u       z::::::z         z::::::z    
+              S:::::Su::::u    u::::u      z::::::z         z::::::z     
+              S:::::Su:::::uuuu:::::u     z::::::z         z::::::z      
+  SSSSSSS     S:::::Su:::::::::::::::uu  z::::::zzzzzzzz  z::::::zzzzzzzz
+  S::::::SSSSSS:::::S u:::::::::::::::u z::::::::::::::z z::::::::::::::z
+  S:::::::::::::::SS   uu::::::::uu:::uz:::::::::::::::zz:::::::::::::::z
+   SSSSSSSSSSSSSSS       uuuuuuuu  uuuuzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
+---------------------------------------------------------------------------
+                                                                         
+A simple fuzzer that replaces the word suzz with a line from a wordlist.")
         .arg(
             Arg::new("url")
                 .value_name("URL")
