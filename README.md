@@ -29,7 +29,7 @@ Options:
   -f, --file <FILE>    Word list to use
   -d, --delay <DELAY>  Optional delay in seconds between requests [default: 0]
   -v, --verbose        Emable verbose output
-      --head           HEAD request instead of GET
+  -H, --head           HEAD request instead of GET
   -h, --help           Print help
   -V, --version        Print version
 ```

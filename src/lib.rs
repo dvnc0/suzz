@@ -67,6 +67,7 @@ A simple fuzzer that replaces the word suzz with a line from a wordlist.")
         .arg(
             Arg::new("request_h")
             .long("head")
+            .short('H')
             .help("HEAD request instead of GET")
             .action(ArgAction::SetTrue)
         )
