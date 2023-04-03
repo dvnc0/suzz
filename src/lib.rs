@@ -5,7 +5,8 @@ pub struct Target {
     pub files: String,
     pub url: String,
     pub delay: u64,
-    pub verbose:bool
+    pub verbose:bool,
+    pub head: bool,
 }
 
 pub fn build_app() -> Target {
@@ -63,13 +64,20 @@ A simple fuzzer that replaces the word suzz with a line from a wordlist.")
                 .help("Emable verbose output")
                 .action(ArgAction::SetTrue)
         )
+        .arg(
+            Arg::new("request_h")
+            .long("head")
+            .help("HEAD request instead of GET")
+            .action(ArgAction::SetTrue)
+        )
         .get_matches();
 
     let target = Target {
         files: matches.get_one::<String>("file").unwrap().to_string(),
         url: matches.get_one::<String>("url").unwrap().to_string(),
         delay: *matches.get_one::<u64>("delay").unwrap(),
-        verbose: matches.get_flag("verbose")
+        verbose: matches.get_flag("verbose"),
+        head: matches.get_flag("request_h"),
     };
     target
 }

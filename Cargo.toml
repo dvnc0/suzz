@@ -9,4 +9,4 @@ authors = ["dvnc0"]
 [dependencies]
 clap = "4.2.1"
 colorful = "0.2.2"
-curl = "0.4.44"
+curl = {version = "0.4.44", features = ["http2"]}
