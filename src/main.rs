@@ -1,6 +1,7 @@
 use suzz::{Target, build_app};
 use core::time;
 use std::thread::sleep;
+
 mod run;
 fn main() {
     let target: Target = build_app();
@@ -15,4 +16,5 @@ fn main() {
             }
         }
     }
+    run::print::info("Job completed".to_string());
 }
